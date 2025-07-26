@@ -127,37 +127,37 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Custom gradients */
+/* Custom gradients - Updated to blue */
 .gradient-text {
-    background: linear-gradient(135deg, #CBA6F7 0%, #B794F6 100%);
+    background: linear-gradient(135deg, #0096C7 0%, #00B4D8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
-/* Hover effects */
+/* Hover effects - Updated to blue */
 .hover-lift {
     transition: all 0.3s ease;
 }
 
 .hover-lift:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(203, 166, 247, 0.15);
+    box-shadow: 0 20px 40px rgba(0, 150, 199, 0.15);
 }
 
-/* Project card custom styling */
+/* Project card custom styling - Updated to blue */
 .project-card {
     background: white;
     border-radius: 16px;
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid #f1f5f9;
+    border: 1px solid #e2e8f0;
 }
 
 .project-card:hover {
     transform: translateY(-12px);
-    box-shadow: 0 25px 50px rgba(203, 166, 247, 0.2);
-    border-color: #CBA6F7;
+    box-shadow: 0 25px 50px rgba(0, 150, 199, 0.2);
+    border-color: #0096C7;
 }
 
 .project-card .project-image {
@@ -168,14 +168,14 @@ html {
     transform: scale(1.05);
 }
 
-/* Contact section styling */
+/* Contact section styling - Updated to blue */
 .contact-icon {
     transition: all 0.3s ease;
 }
 
 .contact-icon:hover {
     transform: scale(1.1);
-    color: #CBA6F7;
+    color: #0096C7;
 }
 
 @layer base {

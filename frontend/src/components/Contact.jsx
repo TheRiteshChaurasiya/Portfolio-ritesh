@@ -49,7 +49,7 @@ const Contact = () => {
       icon: Mail, 
       href: `mailto:${personal.email}`, 
       label: 'Email',
-      color: '#CBA6F7',
+      color: '#0096C7',
       username: personal.email
     }
   ];
@@ -61,7 +61,7 @@ const Contact = () => {
       description: 'Drop me a line anytime',
       value: personal.email,
       href: `mailto:${personal.email}`,
-      color: '#CBA6F7'
+      color: '#0096C7'
     },
     {
       icon: MapPin,
@@ -86,7 +86,7 @@ const Contact = () => {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Header */}
         <div className="text-center space-y-6 mb-20 animate-fadeInUp">
-          <div className="inline-flex items-center px-4 py-2 rounded-full mb-4 border" style={{ backgroundColor: 'rgba(203, 166, 247, 0.08)', borderColor: 'rgba(203, 166, 247, 0.2)', color: '#CBA6F7' }}>
+          <div className="inline-flex items-center px-4 py-2 rounded-full mb-4 border" style={{ backgroundColor: 'rgba(0, 150, 199, 0.08)', borderColor: 'rgba(0, 150, 199, 0.2)', color: '#0096C7' }}>
             <MessageSquare className="w-4 h-4 mr-2" />
             <span className="text-sm font-medium font-inter">Let's Connect</span>
           </div>
@@ -94,7 +94,7 @@ const Contact = () => {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-satoshi" style={{ color: '#111111' }}>
             Ready to bring your ideas to life?
           </h2>
-          <div className="w-20 h-1 rounded-full mx-auto" style={{ background: 'linear-gradient(135deg, #CBA6F7 0%, #B794F6 100%)' }}></div>
+          <div className="w-20 h-1 rounded-full mx-auto" style={{ background: 'linear-gradient(135deg, #0096C7 0%, #00B4D8 100%)' }}></div>
           <p className="text-lg font-inter max-w-2xl mx-auto" style={{ color: '#6B7280' }}>
             I'd love to hear about your project and discuss how we can work together to create something extraordinary.
           </p>
@@ -106,7 +106,7 @@ const Contact = () => {
             <div
               key={index}
               className={`bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-fadeInUp animate-delay-${200 + index * 100} border`}
-              style={{ borderColor: 'rgba(203, 166, 247, 0.1)' }}
+              style={{ borderColor: 'rgba(0, 150, 199, 0.1)' }}
             >
               <div className="flex items-center space-x-4">
                 <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ backgroundColor: `${info.color}20` }}>
@@ -140,7 +140,7 @@ const Contact = () => {
 
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Form */}
-          <Card className="border-0 shadow-lg animate-fadeInLeft" style={{ backgroundColor: '#FAFAF9' }}>
+          <Card className="border-0 shadow-lg animate-fadeInLeft" style={{ backgroundColor: '#F5F9FC' }}>
             <CardContent className="p-8">
               <div className="space-y-6">
                 <div>
@@ -221,7 +221,7 @@ const Contact = () => {
                   <Button
                     type="submit"
                     className="w-full font-inter font-medium py-3 transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
-                    style={{ backgroundColor: '#CBA6F7', color: 'white' }}
+                    style={{ backgroundColor: '#0096C7', color: 'white' }}
                   >
                     <Send className="w-4 h-4 mr-2" />
                     Send Message
@@ -265,10 +265,10 @@ const Contact = () => {
             </div>
 
             {/* Availability Status */}
-            <div className="rounded-xl p-8 shadow-lg" style={{ background: 'linear-gradient(135deg, rgba(203, 166, 247, 0.1) 0%, rgba(183, 148, 246, 0.05) 100%)' }}>
+            <div className="rounded-xl p-8 shadow-lg" style={{ background: 'linear-gradient(135deg, rgba(0, 150, 199, 0.1) 0%, rgba(0, 180, 216, 0.05) 100%)' }}>
               <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(203, 166, 247, 0.2)' }}>
-                  <Heart className="w-5 h-5" style={{ color: '#CBA6F7' }} />
+                <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(0, 150, 199, 0.2)' }}>
+                  <Heart className="w-5 h-5" style={{ color: '#0096C7' }} />
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold font-satoshi mb-2" style={{ color: '#111111' }}>

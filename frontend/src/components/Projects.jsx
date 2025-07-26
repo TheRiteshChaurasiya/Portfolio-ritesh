@@ -16,14 +16,14 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-20 lg:py-32" style={{ backgroundColor: '#FAFAF9' }}>
+    <section id="projects" className="py-20 lg:py-32" style={{ backgroundColor: '#F5F9FC' }}>
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Header */}
         <div className="text-center space-y-4 mb-20 animate-fadeInUp">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-satoshi" style={{ color: '#111111' }}>
             Featured Work
           </h2>
-          <div className="w-20 h-1 rounded-full mx-auto" style={{ background: 'linear-gradient(135deg, #CBA6F7 0%, #B794F6 100%)' }}></div>
+          <div className="w-20 h-1 rounded-full mx-auto" style={{ background: 'linear-gradient(135deg, #0096C7 0%, #00B4D8 100%)' }}></div>
           <p className="text-lg font-inter max-w-2xl mx-auto" style={{ color: '#6B7280' }}>
             Selected projects that showcase my approach to solving complex design challenges
           </p>
@@ -38,7 +38,7 @@ const Projects = () => {
               onMouseEnter={() => setHoveredProject(project.id)}
               onMouseLeave={() => setHoveredProject(null)}
               onClick={() => handleProjectClick(project.id)}
-              style={{ border: '1px solid #f1f5f9' }}
+              style={{ border: '1px solid #e2e8f0' }}
             >
               {/* Project Image */}
               <div className="relative overflow-hidden h-56">
@@ -51,7 +51,7 @@ const Projects = () => {
                 
                 {/* Category Badge */}
                 <div className="absolute top-4 left-4">
-                  <Badge className="font-inter text-xs font-medium bg-white/90 backdrop-blur-sm shadow-lg" style={{ color: '#CBA6F7' }}>
+                  <Badge className="font-inter text-xs font-medium bg-white/90 backdrop-blur-sm shadow-lg" style={{ color: '#0096C7' }}>
                     {project.category}
                   </Badge>
                 </div>
@@ -60,7 +60,7 @@ const Projects = () => {
                 <div className={`absolute inset-0 flex items-center justify-center transition-all duration-300 ${hoveredProject === project.id ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
                   <Button
                     className="font-inter font-medium px-6 py-3 shadow-xl transition-all duration-300 transform hover:scale-105"
-                    style={{ backgroundColor: '#CBA6F7', color: 'white' }}
+                    style={{ backgroundColor: '#0096C7', color: 'white' }}
                   >
                     <Eye className="w-4 h-4 mr-2" />
                     View Project
@@ -71,7 +71,7 @@ const Projects = () => {
               {/* Project Content */}
               <div className="p-6 space-y-4">
                 <div className="space-y-2">
-                  <h3 className="text-xl font-semibold font-satoshi transition-colors duration-200" style={{ color: hoveredProject === project.id ? '#CBA6F7' : '#111111' }}>
+                  <h3 className="text-xl font-semibold font-satoshi transition-colors duration-200" style={{ color: hoveredProject === project.id ? '#0096C7' : '#111111' }}>
                     {project.title}
                   </h3>
                   <p className="text-sm font-inter font-medium" style={{ color: '#6B7280' }}>
@@ -103,8 +103,8 @@ const Projects = () => {
                       variant="outline"
                       className="font-inter text-xs transition-all duration-200 hover:scale-105"
                       style={{ 
-                        borderColor: hoveredProject === project.id ? '#CBA6F7' : '#E5E7EB',
-                        color: hoveredProject === project.id ? '#CBA6F7' : '#6B7280'
+                        borderColor: hoveredProject === project.id ? '#0096C7' : '#E5E7EB',
+                        color: hoveredProject === project.id ? '#0096C7' : '#6B7280'
                       }}
                     >
                       {tool}
@@ -114,7 +114,7 @@ const Projects = () => {
                 
                 {/* View Case Study Link */}
                 <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                  <div className="flex items-center font-inter font-medium text-sm transition-all duration-200" style={{ color: hoveredProject === project.id ? '#CBA6F7' : '#6B7280' }}>
+                  <div className="flex items-center font-inter font-medium text-sm transition-all duration-200" style={{ color: hoveredProject === project.id ? '#0096C7' : '#6B7280' }}>
                     Case Study
                     <ArrowRight className={`w-4 h-4 ml-1 transition-transform duration-200 ${hoveredProject === project.id ? 'translate-x-1' : ''}`} />
                   </div>
@@ -134,8 +134,8 @@ const Projects = () => {
             variant="outline"
             className="font-inter font-medium px-8 py-3 transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
             style={{ 
-              borderColor: '#CBA6F7', 
-              color: '#CBA6F7',
+              borderColor: '#0096C7', 
+              color: '#0096C7',
               backgroundColor: 'transparent'
             }}
           >
