@@ -31,7 +31,7 @@ const Header = () => {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled ? 'bg-white/90 backdrop-blur-md border-b' : 'bg-transparent'
-    }`} style={{ borderColor: isScrolled ? 'rgba(203, 166, 247, 0.1)' : 'transparent' }}>
+    }`} style={{ borderColor: isScrolled ? 'rgba(0, 150, 199, 0.1)' : 'transparent' }}>
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo/Name */}
@@ -72,9 +72,9 @@ const Header = () => {
               onClick={handleDownloadResume}
               className="font-inter font-medium px-6 py-2 transition-all duration-200 transform hover:scale-105"
               style={{ 
-                backgroundColor: 'rgba(203, 166, 247, 0.1)', 
-                color: '#CBA6F7',
-                border: '1px solid rgba(203, 166, 247, 0.2)'
+                backgroundColor: 'rgba(0, 150, 199, 0.1)', 
+                color: '#0096C7',
+                border: '1px solid rgba(0, 150, 199, 0.2)'
               }}
             >
               <Download className="w-4 h-4 mr-2" />
@@ -94,7 +94,7 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-white border-b shadow-lg animate-slideInUp" style={{ borderColor: 'rgba(203, 166, 247, 0.1)' }}>
+          <div className="md:hidden absolute top-full left-0 right-0 bg-white border-b shadow-lg animate-slideInUp" style={{ borderColor: 'rgba(0, 150, 199, 0.1)' }}>
             <nav className="px-6 py-4 space-y-3">
               <button
                 onClick={() => scrollToSection('about')}
@@ -121,9 +121,9 @@ const Header = () => {
                 onClick={handleDownloadResume}
                 className="w-full font-inter font-medium mt-4 transition-all duration-200"
                 style={{ 
-                  backgroundColor: 'rgba(203, 166, 247, 0.1)', 
-                  color: '#CBA6F7',
-                  border: '1px solid rgba(203, 166, 247, 0.2)'
+                  backgroundColor: 'rgba(0, 150, 199, 0.1)', 
+                  color: '#0096C7',
+                  border: '1px solid rgba(0, 150, 199, 0.2)'
                 }}
               >
                 <Download className="w-4 h-4 mr-2" />

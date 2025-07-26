@@ -9,7 +9,7 @@ const Footer = () => {
   const socialLinks = [
     { icon: Linkedin, href: personal.socialLinks.linkedin, label: 'LinkedIn', color: '#0077B5' },
     { icon: Instagram, href: personal.socialLinks.instagram, label: 'Instagram', color: '#E4405F' },
-    { icon: Mail, href: `mailto:${personal.email}`, label: 'Email', color: '#CBA6F7' }
+    { icon: Mail, href: `mailto:${personal.email}`, label: 'Email', color: '#0096C7' }
   ];
 
   const scrollToSection = (sectionId) => {
@@ -24,7 +24,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-white border-t py-12" style={{ borderColor: 'rgba(203, 166, 247, 0.1)' }}>
+    <footer className="bg-white border-t py-12" style={{ borderColor: 'rgba(0, 150, 199, 0.1)' }}>
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="grid md:grid-cols-4 gap-8">
           {/* Brand Column */}
@@ -43,7 +43,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 hover:shadow-lg contact-icon"
-                  style={{ backgroundColor: 'rgba(203, 166, 247, 0.1)' }}
+                  style={{ backgroundColor: 'rgba(0, 150, 199, 0.1)' }}
                   aria-label={social.label}
                 >
                   <social.icon className="w-4 h-4" style={{ color: social.color }} />
@@ -101,7 +101,7 @@ const Footer = () => {
               <a
                 href={`mailto:${personal.email}`}
                 className="block font-inter text-sm font-medium transition-colors duration-200 hover:underline"
-                style={{ color: '#CBA6F7' }}
+                style={{ color: '#0096C7' }}
               >
                 {personal.email}
               </a>
@@ -113,7 +113,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t mt-12 pt-8 flex flex-col md:flex-row justify-between items-center" style={{ borderColor: 'rgba(203, 166, 247, 0.1)' }}>
+        <div className="border-t mt-12 pt-8 flex flex-col md:flex-row justify-between items-center" style={{ borderColor: 'rgba(0, 150, 199, 0.1)' }}>
           <p className="font-inter text-sm" style={{ color: '#9CA3AF' }}>
             © {currentYear} Ritesh Chaurasiya. All rights reserved.
           </p>
@@ -124,10 +124,10 @@ const Footer = () => {
             <button
               onClick={scrollToTop}
               className="w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 contact-icon"
-              style={{ backgroundColor: 'rgba(203, 166, 247, 0.1)' }}
+              style={{ backgroundColor: 'rgba(0, 150, 199, 0.1)' }}
               aria-label="Scroll to top"
             >
-              <ArrowUp className="w-4 h-4" style={{ color: '#CBA6F7' }} />
+              <ArrowUp className="w-4 h-4" style={{ color: '#0096C7' }} />
             </button>
           </div>
         </div>
