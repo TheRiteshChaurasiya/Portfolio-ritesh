@@ -1,136 +1,127 @@
 import React, { useState } from 'react';
-import { Card, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
-import { ExternalLink, Eye } from 'lucide-react';
+import { ExternalLink, ArrowRight, Clock, User } from 'lucide-react';
 import { portfolioData } from '../data/mock';
 
 const Projects = () => {
-  const { projects } = portfolioData;
+  const { caseStudies } = portfolioData;
   const [hoveredProject, setHoveredProject] = useState(null);
 
-  const categories = ['All', ...new Set(projects.map(project => project.category))];
-  const [selectedCategory, setSelectedCategory] = useState('All');
-
-  const filteredProjects = selectedCategory === 'All' 
-    ? projects 
-    : projects.filter(project => project.category === selectedCategory);
+  // Show only first 3 case studies
+  const featuredProjects = caseStudies.slice(0, 3);
 
   const handleProjectClick = (projectId) => {
-    alert(`Project ${projectId} details would open here!`);
+    alert(`Case study for project ${projectId} would open here!`);
   };
 
   return (
-    <section id="projects" className="py-20 lg:py-32 bg-gray-50">
+    <section id="projects" className="py-20 lg:py-32" style={{ backgroundColor: '#FAFAF9' }}>
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Header */}
-        <div className="text-center space-y-4 mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">
-            Featured Projects
+        <div className="text-center space-y-4 mb-16 animate-fadeInUp">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-satoshi" style={{ color: '#111111' }}>
+            Featured Case Studies
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-purple-400 to-purple-600 rounded-full mx-auto"></div>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <div className="w-20 h-1 rounded-full mx-auto" style={{ background: 'linear-gradient(135deg, #CBA6F7 0%, #B794F6 100%)' }}></div>
+          <p className="text-lg font-inter max-w-3xl mx-auto" style={{ color: '#6B7280' }}>
             A collection of my recent work showcasing user-centered design solutions across various industries and platforms.
           </p>
         </div>
 
-        {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setSelectedCategory(category)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-                selectedCategory === category
-                  ? 'bg-purple-600 text-white shadow-lg'
-                  : 'bg-white text-gray-600 hover:bg-purple-50 hover:text-purple-600'
-              }`}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-
-        {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, index) => (
-            <Card
+        {/* Case Studies Grid */}
+        <div className="grid lg:grid-cols-3 gap-8 mb-16">
+          {featuredProjects.map((project, index) => (
+            <div
               key={project.id}
-              className={`group cursor-pointer bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 ${
-                hoveredProject === project.id ? 'scale-105' : ''
-              }`}
+              className={`project-card cursor-pointer animate-fadeInUp animate-delay-${200 + index * 200}`}
               onMouseEnter={() => setHoveredProject(project.id)}
               onMouseLeave={() => setHoveredProject(null)}
               onClick={() => handleProjectClick(project.id)}
             >
-              <CardContent className="p-0">
-                {/* Project Image */}
-                <div className="relative overflow-hidden rounded-t-lg">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
-                    <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <Eye className="w-8 h-8 text-white" />
-                    </div>
-                  </div>
-                  
-                  {/* Category Badge */}
-                  <div className="absolute top-4 left-4">
-                    <Badge className="bg-white text-purple-600 hover:bg-purple-50">
-                      {project.category}
-                    </Badge>
+              {/* Project Image */}
+              <div className="relative overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="project-image w-full h-56 object-cover"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                  <div className={`transition-all duration-300 ${hoveredProject === project.id ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+                    <ExternalLink className="w-8 h-8 text-white" />
                   </div>
                 </div>
+                
+                {/* Category Badge */}
+                <div className="absolute top-4 left-4">
+                  <Badge className="font-inter text-xs font-medium bg-white shadow-lg" style={{ color: '#CBA6F7' }}>
+                    {project.category}
+                  </Badge>
+                </div>
+              </div>
 
-                {/* Project Content */}
-                <div className="p-6 space-y-4">
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-xl font-semibold text-gray-900 group-hover:text-purple-600 transition-colors duration-200">
-                      {project.title}
-                    </h3>
-                    <span className="text-sm text-gray-500 font-medium">
-                      {project.year}
-                    </span>
-                  </div>
-                  
-                  <p className="text-gray-600 line-clamp-3">
-                    {project.description}
+              {/* Project Content */}
+              <div className="p-6 space-y-4">
+                <div className="space-y-2">
+                  <h3 className="text-xl font-semibold font-satoshi transition-colors duration-200" style={{ color: hoveredProject === project.id ? '#CBA6F7' : '#111111' }}>
+                    {project.title}
+                  </h3>
+                  <p className="text-sm font-inter font-medium" style={{ color: '#6B7280' }}>
+                    {project.subtitle}
                   </p>
-                  
-                  {/* Tools */}
-                  <div className="flex flex-wrap gap-2">
-                    {project.tools.map((tool, toolIndex) => (
-                      <Badge
-                        key={toolIndex}
-                        variant="outline"
-                        className="text-xs text-gray-500 border-gray-300"
-                      >
-                        {tool}
-                      </Badge>
-                    ))}
+                </div>
+                
+                <p className="font-inter text-sm leading-relaxed" style={{ color: '#9CA3AF' }}>
+                  {project.description}
+                </p>
+                
+                {/* Project Meta */}
+                <div className="flex items-center gap-4 text-xs font-inter" style={{ color: '#9CA3AF' }}>
+                  <div className="flex items-center gap-1">
+                    <Clock className="w-3 h-3" />
+                    {project.duration}
                   </div>
-                  
-                  {/* View Project Link */}
-                  <div className="flex items-center text-purple-600 font-medium text-sm group-hover:text-purple-700 transition-colors duration-200">
-                    View Project
-                    <ExternalLink className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform duration-200" />
+                  <div className="flex items-center gap-1">
+                    <User className="w-3 h-3" />
+                    {project.role}
                   </div>
                 </div>
-              </CardContent>
-            </Card>
+                
+                {/* Tools */}
+                <div className="flex flex-wrap gap-2">
+                  {project.tools.slice(0, 3).map((tool, toolIndex) => (
+                    <Badge
+                      key={toolIndex}
+                      variant="outline"
+                      className="font-inter text-xs border-gray-300 text-gray-500"
+                    >
+                      {tool}
+                    </Badge>
+                  ))}
+                </div>
+                
+                {/* View Case Study Link */}
+                <div className="flex items-center font-inter font-medium text-sm transition-all duration-200 mt-4" style={{ color: hoveredProject === project.id ? '#CBA6F7' : '#6B7280' }}>
+                  View Case Study
+                  <ArrowRight className={`w-4 h-4 ml-1 transition-transform duration-200 ${hoveredProject === project.id ? 'translate-x-1' : ''}`} />
+                </div>
+              </div>
+            </div>
           ))}
         </div>
 
-        {/* View More Button */}
-        <div className="text-center mt-12">
+        {/* View All Projects Button */}
+        <div className="text-center animate-fadeInUp animate-delay-800">
           <button
-            onClick={() => alert('View more projects functionality would go here!')}
-            className="inline-flex items-center px-8 py-3 text-purple-600 font-medium border-2 border-purple-200 rounded-lg hover:bg-purple-50 hover:border-purple-300 transition-all duration-200"
+            onClick={() => alert('View all case studies functionality would go here!')}
+            className="inline-flex items-center px-8 py-3 font-inter font-medium border-2 rounded-lg transition-all duration-300 hover:shadow-lg transform hover:scale-105"
+            style={{ 
+              borderColor: '#CBA6F7', 
+              color: '#CBA6F7',
+              backgroundColor: 'rgba(203, 166, 247, 0.05)'
+            }}
           >
-            View All Projects
-            <ExternalLink className="w-4 h-4 ml-2" />
+            View All Case Studies
+            <ArrowRight className="w-4 h-4 ml-2" />
           </button>
         </div>
       </div>

@@ -13,60 +13,66 @@ export const portfolioData = {
     }
   },
   
-  projects: [
+  caseStudies: [
     {
       id: 1,
-      title: "EcoFood - Sustainable Food App",
-      description: "A mobile app connecting users with local sustainable food options and eco-friendly restaurants.",
+      title: "EcoFood Mobile App",
+      subtitle: "Sustainable Food Discovery Platform",
+      description: "Designed a comprehensive mobile app that connects users with local sustainable food options, featuring intuitive navigation and eco-friendly restaurant discovery.",
       image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=800&h=600&fit=crop",
-      category: "Mobile App",
+      category: "Mobile App Design",
       year: "2024",
-      tools: ["Figma", "Prototyping", "User Research"]
+      duration: "3 months",
+      role: "Lead UX/UI Designer",
+      tools: ["Figma", "Prototyping", "User Research", "Usability Testing"],
+      challenge: "Creating an intuitive way for users to discover and choose sustainable food options while promoting eco-conscious dining habits.",
+      keyFeatures: ["Location-based restaurant discovery", "Sustainability scoring system", "Community reviews and ratings", "Personalized recommendations"],
+      outcome: "40% increase in user engagement and 60% improvement in task completion rates during testing."
     },
     {
       id: 2,
       title: "FinTech Dashboard",
-      description: "A comprehensive financial dashboard for managing investments and tracking market trends.",
+      subtitle: "Investment Management Platform",
+      description: "Crafted a sophisticated financial dashboard that simplifies complex investment data into actionable insights for both novice and expert investors.",
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
       category: "Web Application",
       year: "2023",
-      tools: ["Figma", "Data Visualization", "UX Research"]
+      duration: "4 months",
+      role: "Senior UX Designer",
+      tools: ["Figma", "Data Visualization", "User Journey Mapping", "A/B Testing"],
+      challenge: "Presenting complex financial data in a way that's both comprehensive for experts and accessible for beginners.",
+      keyFeatures: ["Real-time market data visualization", "Portfolio performance tracking", "Risk assessment tools", "Investment recommendation engine"],
+      outcome: "25% reduction in support tickets and 35% increase in user retention rates."
     },
     {
       id: 3,
-      title: "HealthTrack - Wellness Platform",
-      description: "A holistic wellness platform helping users track health metrics and connect with healthcare providers.",
+      title: "HealthTrack Wellness",
+      subtitle: "Holistic Health Management System",
+      description: "Developed a comprehensive wellness platform that bridges the gap between users and healthcare providers through thoughtful design and seamless user experience.",
       image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=600&fit=crop",
-      category: "Mobile & Web",
+      category: "Healthcare Platform",
       year: "2023",
-      tools: ["Figma", "User Journey Mapping", "Prototyping"]
+      duration: "5 months",
+      role: "Lead Product Designer",
+      tools: ["Figma", "User Research", "Service Design", "Accessibility Design"],
+      challenge: "Creating a platform that caters to diverse user needs while maintaining HIPAA compliance and ensuring accessibility for all users.",
+      keyFeatures: ["Health metrics tracking", "Telemedicine integration", "Medication reminders", "Progress visualization"],
+      outcome: "50% improvement in patient engagement and 30% reduction in missed appointments."
     },
     {
       id: 4,
-      title: "Creative Studio Brand Identity",
-      description: "Complete brand identity and website design for a creative studio specializing in digital art.",
+      title: "Creative Studio Brand",
+      subtitle: "Complete Brand Identity System",
+      description: "Developed a cohesive brand identity and digital presence for a creative studio, establishing a strong visual language that resonates with their target audience.",
       image: "https://images.unsplash.com/photo-1558655146-d09347e92766?w=800&h=600&fit=crop",
-      category: "Branding",
+      category: "Brand Identity",
       year: "2022",
-      tools: ["Adobe Creative Suite", "Brand Strategy", "Web Design"]
-    },
-    {
-      id: 5,
-      title: "EduLearn - Online Learning Platform",
-      description: "An intuitive e-learning platform designed to make online education accessible and engaging.",
-      image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=800&h=600&fit=crop",
-      category: "Web Application",
-      year: "2022",
-      tools: ["Figma", "User Testing", "Design Systems"]
-    },
-    {
-      id: 6,
-      title: "TravelMate - Trip Planning App",
-      description: "A comprehensive travel planning app that helps users discover, plan, and book their perfect trips.",
-      image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&h=600&fit=crop",
-      category: "Mobile App",
-      year: "2021",
-      tools: ["Figma", "User Research", "Prototyping"]
+      duration: "2 months",
+      role: "Brand & Web Designer",
+      tools: ["Adobe Creative Suite", "Brand Strategy", "Web Design", "Motion Graphics"],
+      challenge: "Creating a memorable brand identity that stands out in a competitive creative market while maintaining professionalism.",
+      keyFeatures: ["Logo design and brand guidelines", "Website design and development", "Marketing collateral design", "Social media assets"],
+      outcome: "150% increase in client inquiries and 80% improvement in brand recognition."
     }
   ],
   
