@@ -30,15 +30,16 @@ const Header = () => {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/90 backdrop-blur-md border-b border-gray-200' : 'bg-transparent'
-    }`}>
+      isScrolled ? 'bg-white/90 backdrop-blur-md border-b' : 'bg-transparent'
+    }`} style={{ borderColor: isScrolled ? 'rgba(203, 166, 247, 0.1)' : 'transparent' }}>
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo/Name */}
           <div className="flex-shrink-0">
             <button
               onClick={() => scrollToSection('hero')}
-              className="text-xl sm:text-2xl font-bold text-gray-900 hover:text-purple-400 transition-colors duration-200"
+              className="text-xl sm:text-2xl font-bold font-satoshi transition-all duration-200 hover:scale-105"
+              style={{ color: '#111111' }}
             >
               Ritesh
             </button>
@@ -48,25 +49,33 @@ const Header = () => {
           <nav className="hidden md:flex items-center space-x-8">
             <button
               onClick={() => scrollToSection('about')}
-              className="text-gray-700 hover:text-purple-400 transition-colors duration-200 font-medium"
+              className="font-inter font-medium transition-all duration-200 hover:scale-105"
+              style={{ color: '#6B7280' }}
             >
               About
             </button>
             <button
               onClick={() => scrollToSection('projects')}
-              className="text-gray-700 hover:text-purple-400 transition-colors duration-200 font-medium"
+              className="font-inter font-medium transition-all duration-200 hover:scale-105"
+              style={{ color: '#6B7280' }}
             >
               Projects
             </button>
             <button
               onClick={() => scrollToSection('contact')}
-              className="text-gray-700 hover:text-purple-400 transition-colors duration-200 font-medium"
+              className="font-inter font-medium transition-all duration-200 hover:scale-105"
+              style={{ color: '#6B7280' }}
             >
               Contact
             </button>
             <Button
               onClick={handleDownloadResume}
-              className="bg-purple-100 text-purple-700 hover:bg-purple-200 border-0 px-6 py-2 transition-all duration-200"
+              className="font-inter font-medium px-6 py-2 transition-all duration-200 transform hover:scale-105"
+              style={{ 
+                backgroundColor: 'rgba(203, 166, 247, 0.1)', 
+                color: '#CBA6F7',
+                border: '1px solid rgba(203, 166, 247, 0.2)'
+              }}
             >
               <Download className="w-4 h-4 mr-2" />
               Resume
@@ -76,7 +85,8 @@ const Header = () => {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-md text-gray-700 hover:text-purple-400 transition-colors duration-200"
+            className="md:hidden p-2 rounded-md transition-all duration-200 hover:scale-110 contact-icon"
+            style={{ color: '#6B7280' }}
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -84,29 +94,37 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-white border-b border-gray-200 shadow-lg">
+          <div className="md:hidden absolute top-full left-0 right-0 bg-white border-b shadow-lg animate-slideInUp" style={{ borderColor: 'rgba(203, 166, 247, 0.1)' }}>
             <nav className="px-6 py-4 space-y-3">
               <button
                 onClick={() => scrollToSection('about')}
-                className="block w-full text-left py-2 text-gray-700 hover:text-purple-400 transition-colors duration-200 font-medium"
+                className="block w-full text-left py-2 font-inter font-medium transition-colors duration-200"
+                style={{ color: '#6B7280' }}
               >
                 About
               </button>
               <button
                 onClick={() => scrollToSection('projects')}
-                className="block w-full text-left py-2 text-gray-700 hover:text-purple-400 transition-colors duration-200 font-medium"
+                className="block w-full text-left py-2 font-inter font-medium transition-colors duration-200"
+                style={{ color: '#6B7280' }}
               >
                 Projects
               </button>
               <button
                 onClick={() => scrollToSection('contact')}
-                className="block w-full text-left py-2 text-gray-700 hover:text-purple-400 transition-colors duration-200 font-medium"
+                className="block w-full text-left py-2 font-inter font-medium transition-colors duration-200"
+                style={{ color: '#6B7280' }}
               >
                 Contact
               </button>
               <Button
                 onClick={handleDownloadResume}
-                className="w-full bg-purple-100 text-purple-700 hover:bg-purple-200 border-0 mt-4 transition-all duration-200"
+                className="w-full font-inter font-medium mt-4 transition-all duration-200"
+                style={{ 
+                  backgroundColor: 'rgba(203, 166, 247, 0.1)', 
+                  color: '#CBA6F7',
+                  border: '1px solid rgba(203, 166, 247, 0.2)'
+                }}
               >
                 <Download className="w-4 h-4 mr-2" />
                 Download Resume
