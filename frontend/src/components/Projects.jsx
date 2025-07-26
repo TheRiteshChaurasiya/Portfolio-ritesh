@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Badge } from './ui/badge';
-import { ExternalLink, ArrowRight, Clock, User } from 'lucide-react';
+import { Button } from './ui/button';
+import { ExternalLink, ArrowRight, Clock, User, Eye } from 'lucide-react';
 import { portfolioData } from '../data/mock';
 
 const Projects = () => {
@@ -18,13 +19,13 @@ const Projects = () => {
     <section id="projects" className="py-20 lg:py-32" style={{ backgroundColor: '#FAFAF9' }}>
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Header */}
-        <div className="text-center space-y-4 mb-16 animate-fadeInUp">
+        <div className="text-center space-y-4 mb-20 animate-fadeInUp">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-satoshi" style={{ color: '#111111' }}>
-            Featured Case Studies
+            Featured Work
           </h2>
           <div className="w-20 h-1 rounded-full mx-auto" style={{ background: 'linear-gradient(135deg, #CBA6F7 0%, #B794F6 100%)' }}></div>
-          <p className="text-lg font-inter max-w-3xl mx-auto" style={{ color: '#6B7280' }}>
-            A collection of my recent work showcasing user-centered design solutions across various industries and platforms.
+          <p className="text-lg font-inter max-w-2xl mx-auto" style={{ color: '#6B7280' }}>
+            Selected projects that showcase my approach to solving complex design challenges
           </p>
         </div>
 
@@ -33,29 +34,37 @@ const Projects = () => {
           {featuredProjects.map((project, index) => (
             <div
               key={project.id}
-              className={`project-card cursor-pointer animate-fadeInUp animate-delay-${200 + index * 200}`}
+              className={`group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 cursor-pointer animate-fadeInUp animate-delay-${200 + index * 200}`}
               onMouseEnter={() => setHoveredProject(project.id)}
               onMouseLeave={() => setHoveredProject(null)}
               onClick={() => handleProjectClick(project.id)}
+              style={{ border: '1px solid #f1f5f9' }}
             >
               {/* Project Image */}
-              <div className="relative overflow-hidden">
+              <div className="relative overflow-hidden h-56">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="project-image w-full h-56 object-cover"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
-                  <div className={`transition-all duration-300 ${hoveredProject === project.id ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
-                    <ExternalLink className="w-8 h-8 text-white" />
-                  </div>
-                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 
                 {/* Category Badge */}
                 <div className="absolute top-4 left-4">
-                  <Badge className="font-inter text-xs font-medium bg-white shadow-lg" style={{ color: '#CBA6F7' }}>
+                  <Badge className="font-inter text-xs font-medium bg-white/90 backdrop-blur-sm shadow-lg" style={{ color: '#CBA6F7' }}>
                     {project.category}
                   </Badge>
+                </div>
+
+                {/* View Project Button - appears on hover */}
+                <div className={`absolute inset-0 flex items-center justify-center transition-all duration-300 ${hoveredProject === project.id ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+                  <Button
+                    className="font-inter font-medium px-6 py-3 shadow-xl transition-all duration-300 transform hover:scale-105"
+                    style={{ backgroundColor: '#CBA6F7', color: 'white' }}
+                  >
+                    <Eye className="w-4 h-4 mr-2" />
+                    View Project
+                  </Button>
                 </div>
               </div>
 
@@ -92,7 +101,11 @@ const Projects = () => {
                     <Badge
                       key={toolIndex}
                       variant="outline"
-                      className="font-inter text-xs border-gray-300 text-gray-500"
+                      className="font-inter text-xs transition-all duration-200 hover:scale-105"
+                      style={{ 
+                        borderColor: hoveredProject === project.id ? '#CBA6F7' : '#E5E7EB',
+                        color: hoveredProject === project.id ? '#CBA6F7' : '#6B7280'
+                      }}
                     >
                       {tool}
                     </Badge>
@@ -100,9 +113,14 @@ const Projects = () => {
                 </div>
                 
                 {/* View Case Study Link */}
-                <div className="flex items-center font-inter font-medium text-sm transition-all duration-200 mt-4" style={{ color: hoveredProject === project.id ? '#CBA6F7' : '#6B7280' }}>
-                  View Case Study
-                  <ArrowRight className={`w-4 h-4 ml-1 transition-transform duration-200 ${hoveredProject === project.id ? 'translate-x-1' : ''}`} />
+                <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                  <div className="flex items-center font-inter font-medium text-sm transition-all duration-200" style={{ color: hoveredProject === project.id ? '#CBA6F7' : '#6B7280' }}>
+                    Case Study
+                    <ArrowRight className={`w-4 h-4 ml-1 transition-transform duration-200 ${hoveredProject === project.id ? 'translate-x-1' : ''}`} />
+                  </div>
+                  <div className="text-xs font-inter" style={{ color: '#9CA3AF' }}>
+                    {project.year}
+                  </div>
                 </div>
               </div>
             </div>
@@ -111,18 +129,19 @@ const Projects = () => {
 
         {/* View All Projects Button */}
         <div className="text-center animate-fadeInUp animate-delay-800">
-          <button
+          <Button
             onClick={() => alert('View all case studies functionality would go here!')}
-            className="inline-flex items-center px-8 py-3 font-inter font-medium border-2 rounded-lg transition-all duration-300 hover:shadow-lg transform hover:scale-105"
+            variant="outline"
+            className="font-inter font-medium px-8 py-3 transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
             style={{ 
               borderColor: '#CBA6F7', 
               color: '#CBA6F7',
-              backgroundColor: 'rgba(203, 166, 247, 0.05)'
+              backgroundColor: 'transparent'
             }}
           >
-            View All Case Studies
+            View All Work
             <ArrowRight className="w-4 h-4 ml-2" />
-          </button>
+          </Button>
         </div>
       </div>
     </section>

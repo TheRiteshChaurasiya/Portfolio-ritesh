@@ -3,7 +3,7 @@ import { Card, CardContent } from './ui/card';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
-import { Mail, Linkedin, Instagram, Send, MessageSquare, Heart } from 'lucide-react';
+import { Mail, Linkedin, Instagram, Send, MessageSquare, Heart, MapPin, Phone, Clock } from 'lucide-react';
 import { portfolioData } from '../data/mock';
 
 const Contact = () => {
@@ -35,19 +35,49 @@ const Contact = () => {
       icon: Linkedin, 
       href: personal.socialLinks.linkedin, 
       label: 'LinkedIn',
-      color: '#0077B5'
+      color: '#0077B5',
+      username: '@riteshchaurasiya'
     },
     { 
       icon: Instagram, 
       href: personal.socialLinks.instagram, 
       label: 'Instagram',
-      color: '#E4405F'
+      color: '#E4405F',
+      username: '@riteshchaurasiya'
     },
     { 
       icon: Mail, 
       href: `mailto:${personal.email}`, 
       label: 'Email',
+      color: '#CBA6F7',
+      username: personal.email
+    }
+  ];
+
+  const contactInfo = [
+    {
+      icon: Mail,
+      title: 'Email',
+      description: 'Drop me a line anytime',
+      value: personal.email,
+      href: `mailto:${personal.email}`,
       color: '#CBA6F7'
+    },
+    {
+      icon: MapPin,
+      title: 'Location',
+      description: 'Based in India',
+      value: 'Mumbai, India',
+      href: null,
+      color: '#10B981'
+    },
+    {
+      icon: Clock,
+      title: 'Response Time',
+      description: 'Usually within',
+      value: '24 hours',
+      href: null,
+      color: '#F59E0B'
     }
   ];
 
@@ -55,8 +85,8 @@ const Contact = () => {
     <section id="contact" className="py-20 lg:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Header */}
-        <div className="text-center space-y-6 mb-16 animate-fadeInUp">
-          <div className="inline-flex items-center px-4 py-2 rounded-full mb-4" style={{ backgroundColor: 'rgba(203, 166, 247, 0.1)', color: '#CBA6F7' }}>
+        <div className="text-center space-y-6 mb-20 animate-fadeInUp">
+          <div className="inline-flex items-center px-4 py-2 rounded-full mb-4 border" style={{ backgroundColor: 'rgba(203, 166, 247, 0.08)', borderColor: 'rgba(203, 166, 247, 0.2)', color: '#CBA6F7' }}>
             <MessageSquare className="w-4 h-4 mr-2" />
             <span className="text-sm font-medium font-inter">Let's Connect</span>
           </div>
@@ -65,9 +95,47 @@ const Contact = () => {
             Ready to bring your ideas to life?
           </h2>
           <div className="w-20 h-1 rounded-full mx-auto" style={{ background: 'linear-gradient(135deg, #CBA6F7 0%, #B794F6 100%)' }}></div>
-          <p className="text-lg font-inter max-w-3xl mx-auto" style={{ color: '#6B7280' }}>
+          <p className="text-lg font-inter max-w-2xl mx-auto" style={{ color: '#6B7280' }}>
             I'd love to hear about your project and discuss how we can work together to create something extraordinary.
           </p>
+        </div>
+
+        {/* Contact Info Cards */}
+        <div className="grid md:grid-cols-3 gap-6 mb-16">
+          {contactInfo.map((info, index) => (
+            <div
+              key={index}
+              className={`bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-fadeInUp animate-delay-${200 + index * 100} border`}
+              style={{ borderColor: 'rgba(203, 166, 247, 0.1)' }}
+            >
+              <div className="flex items-center space-x-4">
+                <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ backgroundColor: `${info.color}20` }}>
+                  <info.icon className="w-5 h-5" style={{ color: info.color }} />
+                </div>
+                <div>
+                  <h4 className="text-lg font-semibold font-satoshi" style={{ color: '#111111' }}>
+                    {info.title}
+                  </h4>
+                  <p className="text-sm font-inter" style={{ color: '#6B7280' }}>
+                    {info.description}
+                  </p>
+                  {info.href ? (
+                    <a
+                      href={info.href}
+                      className="font-inter font-medium text-sm transition-colors duration-200 hover:underline"
+                      style={{ color: info.color }}
+                    >
+                      {info.value}
+                    </a>
+                  ) : (
+                    <p className="font-inter font-medium text-sm" style={{ color: info.color }}>
+                      {info.value}
+                    </p>
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16">
@@ -97,7 +165,7 @@ const Contact = () => {
                         onChange={handleInputChange}
                         placeholder="Your name"
                         className="font-inter transition-all duration-300 focus:shadow-lg"
-                        style={{ borderColor: '#E5E7EB', ':focus': { borderColor: '#CBA6F7' } }}
+                        style={{ backgroundColor: 'white', borderColor: '#E5E7EB' }}
                         required
                       />
                     </div>
@@ -112,7 +180,7 @@ const Contact = () => {
                         onChange={handleInputChange}
                         placeholder="your@email.com"
                         className="font-inter transition-all duration-300 focus:shadow-lg"
-                        style={{ borderColor: '#E5E7EB' }}
+                        style={{ backgroundColor: 'white', borderColor: '#E5E7EB' }}
                         required
                       />
                     </div>
@@ -129,7 +197,7 @@ const Contact = () => {
                       onChange={handleInputChange}
                       placeholder="Project inquiry"
                       className="font-inter transition-all duration-300 focus:shadow-lg"
-                      style={{ borderColor: '#E5E7EB' }}
+                      style={{ backgroundColor: 'white', borderColor: '#E5E7EB' }}
                       required
                     />
                   </div>
@@ -145,7 +213,7 @@ const Contact = () => {
                       placeholder="Tell me about your project, timeline, and goals..."
                       rows={5}
                       className="font-inter transition-all duration-300 focus:shadow-lg"
-                      style={{ borderColor: '#E5E7EB' }}
+                      style={{ backgroundColor: 'white', borderColor: '#E5E7EB' }}
                       required
                     />
                   </div>
@@ -163,56 +231,41 @@ const Contact = () => {
             </CardContent>
           </Card>
 
-          {/* Contact Info */}
+          {/* Social Links & Info */}
           <div className="space-y-8 animate-fadeInRight">
-            {/* Email Section */}
-            <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 rounded-full flex items-center justify-center contact-icon" style={{ backgroundColor: 'rgba(203, 166, 247, 0.1)' }}>
-                  <Mail className="w-5 h-5" style={{ color: '#CBA6F7' }} />
-                </div>
-                <div>
-                  <h4 className="text-lg font-semibold font-satoshi mb-1" style={{ color: '#111111' }}>
-                    Email Me
-                  </h4>
-                  <p className="text-sm font-inter mb-2" style={{ color: '#6B7280' }}>
-                    I typically respond within 24 hours
-                  </p>
-                  <a
-                    href={`mailto:${personal.email}`}
-                    className="font-inter font-medium transition-colors duration-200 hover:underline"
-                    style={{ color: '#CBA6F7' }}
-                  >
-                    {personal.email}
-                  </a>
-                </div>
-              </div>
-            </div>
-
             {/* Social Links */}
-            <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              <h4 className="text-lg font-semibold font-satoshi mb-4" style={{ color: '#111111' }}>
-                Connect With Me
+            <div className="bg-white rounded-xl p-8 shadow-lg">
+              <h4 className="text-xl font-semibold font-satoshi mb-6" style={{ color: '#111111' }}>
+                Let's Connect
               </h4>
-              <div className="flex space-x-4">
+              <div className="space-y-4">
                 {socialLinks.map((social, index) => (
                   <a
                     key={index}
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 hover:shadow-lg"
-                    style={{ backgroundColor: 'rgba(203, 166, 247, 0.1)' }}
-                    aria-label={social.label}
+                    className="flex items-center space-x-4 p-4 rounded-lg transition-all duration-300 hover:shadow-md transform hover:scale-105"
+                    style={{ backgroundColor: `${social.color}08`, border: `1px solid ${social.color}20` }}
                   >
-                    <social.icon className="w-5 h-5 contact-icon" style={{ color: social.color }} />
+                    <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ backgroundColor: `${social.color}20` }}>
+                      <social.icon className="w-5 h-5" style={{ color: social.color }} />
+                    </div>
+                    <div>
+                      <p className="font-inter font-medium" style={{ color: '#111111' }}>
+                        {social.label}
+                      </p>
+                      <p className="text-sm font-inter" style={{ color: '#6B7280' }}>
+                        {social.username}
+                      </p>
+                    </div>
                   </a>
                 ))}
               </div>
             </div>
 
-            {/* Availability */}
-            <div className="rounded-xl p-6 shadow-lg" style={{ background: 'linear-gradient(135deg, rgba(203, 166, 247, 0.1) 0%, rgba(183, 148, 246, 0.05) 100%)' }}>
+            {/* Availability Status */}
+            <div className="rounded-xl p-8 shadow-lg" style={{ background: 'linear-gradient(135deg, rgba(203, 166, 247, 0.1) 0%, rgba(183, 148, 246, 0.05) 100%)' }}>
               <div className="flex items-start space-x-4">
                 <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(203, 166, 247, 0.2)' }}>
                   <Heart className="w-5 h-5" style={{ color: '#CBA6F7' }} />
@@ -226,20 +279,10 @@ const Contact = () => {
                   </p>
                   <div className="flex items-center space-x-2">
                     <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                    <span className="text-sm font-inter text-gray-600">Available for work</span>
+                    <span className="text-sm font-inter font-medium" style={{ color: '#10B981' }}>Available for work</span>
                   </div>
                 </div>
               </div>
-            </div>
-
-            {/* Quick Response Promise */}
-            <div className="text-center p-6 rounded-xl border-2 border-dashed transition-all duration-300 hover:border-solid" style={{ borderColor: '#CBA6F7' }}>
-              <div className="text-2xl font-bold font-satoshi mb-2" style={{ color: '#CBA6F7' }}>
-                24hr
-              </div>
-              <p className="text-sm font-inter" style={{ color: '#6B7280' }}>
-                Average response time
-              </p>
             </div>
           </div>
         </div>
