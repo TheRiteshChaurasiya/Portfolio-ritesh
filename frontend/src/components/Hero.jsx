@@ -1,10 +1,12 @@
 import React from 'react';
 import { Button } from './ui/button';
 import { ArrowRight, Sparkles, Download } from 'lucide-react';
+import { useTheme } from '../contexts/ThemeContext';
 import { portfolioData } from '../data/mock';
 
 const Hero = () => {
   const { personal } = portfolioData;
+  const { colors } = useTheme();
 
   const scrollToProjects = () => {
     const element = document.getElementById('projects');
@@ -25,24 +27,38 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden" style={{ backgroundColor: '#F5F9FC' }}>
+    <section 
+      id="hero" 
+      className="min-h-screen flex items-center justify-center relative overflow-hidden" 
+      style={{ backgroundColor: colors.backgroundSecondary }}
+    >
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-20 w-72 h-72 rounded-full" style={{ background: 'radial-gradient(circle, #0096C7 0%, transparent 70%)' }}></div>
-        <div className="absolute bottom-20 right-20 w-96 h-96 rounded-full" style={{ background: 'radial-gradient(circle, #00B4D8 0%, transparent 70%)' }}></div>
+        <div className="absolute top-20 left-20 w-72 h-72 rounded-full" style={{ background: `radial-gradient(circle, ${colors.accent} 0%, transparent 70%)` }}></div>
+        <div className="absolute bottom-20 right-20 w-96 h-96 rounded-full" style={{ background: `radial-gradient(circle, ${colors.accentSecondary} 0%, transparent 70%)` }}></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-20 relative z-10">
         <div className="text-center space-y-8">
           {/* Status Badge */}
-          <div className="inline-flex items-center px-4 py-2 rounded-full animate-fadeIn animate-delay-200 border" style={{ backgroundColor: 'rgba(0, 150, 199, 0.08)', borderColor: 'rgba(0, 150, 199, 0.2)', color: '#0096C7' }}>
+          <div 
+            className="inline-flex items-center px-4 py-2 rounded-full animate-fadeIn animate-delay-200 border" 
+            style={{ 
+              backgroundColor: colors.accentLight, 
+              borderColor: colors.accentBorder, 
+              color: colors.accent 
+            }}
+          >
             <Sparkles className="w-4 h-4 mr-2" />
             <span className="text-sm font-medium font-inter">Available for new projects</span>
           </div>
 
           {/* Main Content */}
           <div className="space-y-6">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-satoshi leading-tight animate-fadeInUp animate-delay-400" style={{ color: '#111111' }}>
+            <h1 
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold font-satoshi leading-tight animate-fadeInUp animate-delay-400" 
+              style={{ color: colors.textPrimary }}
+            >
               Hi, I'm{' '}
               <span className="gradient-text">
                 {personal.name}
@@ -51,10 +67,16 @@ const Hero = () => {
             
             {/* Strong tagline */}
             <div className="space-y-4 animate-fadeInUp animate-delay-600">
-              <p className="text-xl sm:text-2xl font-inter font-medium" style={{ color: '#6B7280' }}>
+              <p 
+                className="text-xl sm:text-2xl font-inter font-medium" 
+                style={{ color: colors.textSecondary }}
+              >
                 {personal.tagline}
               </p>
-              <p className="text-lg font-inter max-w-2xl mx-auto leading-relaxed" style={{ color: '#9CA3AF' }}>
+              <p 
+                className="text-lg font-inter max-w-2xl mx-auto leading-relaxed" 
+                style={{ color: colors.textMuted }}
+              >
                 I transform complex problems into intuitive, beautiful, and accessible design solutions that users love and businesses value.
               </p>
             </div>
@@ -65,7 +87,7 @@ const Hero = () => {
             <Button
               onClick={scrollToProjects}
               className="font-inter font-medium px-8 py-3 text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
-              style={{ backgroundColor: '#0096C7', color: 'white' }}
+              style={{ backgroundColor: colors.accent, color: 'white' }}
             >
               View My Work
               <ArrowRight className="w-5 h-5 ml-2" />
@@ -75,7 +97,11 @@ const Hero = () => {
               onClick={scrollToContact}
               variant="outline"
               className="font-inter font-medium px-8 py-3 text-lg transition-all duration-300 hover:shadow-lg transform hover:scale-105"
-              style={{ borderColor: '#0096C7', color: '#0096C7', backgroundColor: 'transparent' }}
+              style={{ 
+                borderColor: colors.accent, 
+                color: colors.accent, 
+                backgroundColor: 'transparent' 
+              }}
             >
               Let's Connect
             </Button>
@@ -84,7 +110,11 @@ const Hero = () => {
               onClick={handleDownloadResume}
               variant="outline"
               className="font-inter font-medium px-6 py-3 text-base transition-all duration-300 hover:shadow-lg transform hover:scale-105"
-              style={{ borderColor: '#E5E7EB', color: '#6B7280', backgroundColor: 'transparent' }}
+              style={{ 
+                borderColor: colors.border, 
+                color: colors.textSecondary, 
+                backgroundColor: 'transparent' 
+              }}
             >
               <Download className="w-4 h-4 mr-2" />
               Resume
@@ -94,8 +124,14 @@ const Hero = () => {
           {/* Scroll Indicator */}
           <div className="pt-16 animate-fadeIn animate-delay-1000">
             <div className="animate-bounce">
-              <div className="w-6 h-10 border-2 rounded-full mx-auto" style={{ borderColor: '#0096C7' }}>
-                <div className="w-1 h-3 rounded-full mx-auto mt-2 animate-pulse" style={{ backgroundColor: '#0096C7' }}></div>
+              <div 
+                className="w-6 h-10 border-2 rounded-full mx-auto" 
+                style={{ borderColor: colors.accent }}
+              >
+                <div 
+                  className="w-1 h-3 rounded-full mx-auto mt-2 animate-pulse" 
+                  style={{ backgroundColor: colors.accent }}
+                ></div>
               </div>
             </div>
           </div>
